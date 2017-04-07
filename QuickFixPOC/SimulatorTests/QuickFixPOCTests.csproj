@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BuyOrderTest.cs" />
     <Compile Include="InterpreterTests.cs" />
     <Compile Include="SimulatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,9 +73,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QuickFixPOC\QuickFixPOC.csproj">
-      <Project>{C814E807-5A32-4AF4-9AFE-088F1412A7D0}</Project>
-      <Name>QuickFixPOC</Name>
+    <ProjectReference Include="..\FixClient\FixClient.csproj">
+      <Project>{e6b8b360-7af7-447f-8b03-035f614a972a}</Project>
+      <Name>FixClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\Simulator\Simulator.csproj">
       <Project>{623a4186-d5f0-49c5-8d54-878d9e1c9f1e}</Project>

@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using QuickFix;
-using QuickFixPOC;
 using System.Threading;
 
 namespace Simulator
@@ -24,19 +23,19 @@ namespace Simulator
         }
     }
 
-    public class Application : QuickFix.IApplication
+    public class AcceptorApp : QuickFix.IApplication
     {
         public List<string> messages;
         private Session _session;
         private ISessionCreator _createSession;
         
-        public Application(string filename, ISessionCreator sessionCreator)
+        public AcceptorApp(string filename, ISessionCreator sessionCreator)
         {
             messages = File.ReadLines(filename).ToList();
             _createSession = sessionCreator;
         }
 
-        public Application(string filename, Session fakeSession)
+        public AcceptorApp(string filename, Session fakeSession)
         {
             messages = File.ReadLines(filename).ToList();
         }

@@ -1,6 +1,6 @@
 ﻿using QuickFix;
 using QuickFix.Fields;
-using QuickFixPOC;
+using Simulator;
 using System;
 using System.Collections.Generic;
 using System.IO;

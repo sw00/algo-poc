@@ -33,7 +33,7 @@ namespace SimulatorTests
         public void Should_LoadMessagesFromFilePath()
         {
             string path = "Data/03.JSE_Indices_recv_log.txt";
-            var app = new Simulator.Application(path, new MockSessionCreator());
+            var app = new Simulator.AcceptorApp(path, new MockSessionCreator());
 
             Assert.True(app.messages.Count > 0);
         }
