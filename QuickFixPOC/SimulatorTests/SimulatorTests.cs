@@ -12,7 +12,8 @@ namespace SimulatorTests
 {
     public class MockSessionCreator : ISessionCreator
     {
-        Mock<Session> _mockSession;
+        Mock<Session> _mockSession = new Mock<Session>();
+
 
         public Mock<Session> getMockSession()
         {
@@ -21,8 +22,6 @@ namespace SimulatorTests
 
         public Session LookupSession(SessionID sessionId)
         {
-            _mockSession = new Mock<Session>();
-          
             return _mockSession.Object;
         }
     }
@@ -39,19 +38,5 @@ namespace SimulatorTests
             Assert.True(app.messages.Count > 0);
         }
 
-        [Fact]
-        public void Should_SendMessages()
-        {
-            string path = "Data/03.JSE_Indices_recv_log.txt";
-            var mockSessionCreator = new MockSessionCreator();
-
-            var app = new Simulator.Application(path, mockSessionCreator);
-
-            app.OnLogon(new SessionID("", "", ""));
-
-            mockSessionCreator.getMockSession().Verify(s => s.Send(It.IsAny<Message>()), Times.Exactly(1));         
-
-
-        }
     }
 }

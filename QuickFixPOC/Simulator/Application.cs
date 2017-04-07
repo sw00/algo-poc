@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using QuickFix;
+using QuickFixPOC;
+using System.Threading;
 
 namespace Simulator
 {
@@ -56,7 +58,13 @@ namespace Simulator
 
         public void OnLogon(SessionID sessionID)
         {
-            
+     
+            foreach (var message in messages)
+            {
+                var logEntry = new LogEntry(message);
+                _session.Send(logEntry.Message);
+                Thread.Sleep(5000);
+            }
         }
 
         public void OnLogout(SessionID sessionID)
