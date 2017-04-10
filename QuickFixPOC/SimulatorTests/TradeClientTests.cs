@@ -15,7 +15,9 @@ namespace SimulatorTests
         public void Should_Successfully_Send_BuyOrder()
         {
             var tradeClient = new TradeClient();
-            var buyOrder = new BuyOrder();
+            var buyOrder = new BuyOrder { Account = "12345678",
+                                          SecurityId = "SampleID4567",
+                                          Price = 64500 };
 
             bool result = tradeClient.Send(buyOrder);
 
@@ -26,7 +28,10 @@ namespace SimulatorTests
         public void Should_Successfully_Send_SellOrder()
         {
             var tradeClient = new TradeClient();
-            var sellOrder = new SellOrder();
+
+            var sellOrder = new SellOrder { Account = "87654321",
+                                            SecurityId = "SID4567",
+                                            Price = 11300 };
 
             bool result = tradeClient.Send(sellOrder);
 

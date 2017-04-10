@@ -17,12 +17,9 @@ namespace SimulatorTests
         [Fact]
         public void Should_Convert_BuyOrder_To_NeworderSingle_FixMessage()
         {
-            var buyOrder = new BuyOrder
-            {
-                Account = "12345678",
-                SecurityId = "SampleID4567",
-                Price = 64500
-            };
+            var buyOrder = new BuyOrder { Account = "12345678",
+                                          SecurityId = "SampleID4567",
+                                          Price = 64500 };
 
             Message msg = FixInterpreter.ToFixMessage(buyOrder);
 
@@ -34,14 +31,11 @@ namespace SimulatorTests
         [Fact]
         public void Should_Convert_SellOrder_To_NewOrderSingle_FixMessage()
         {
-            var buyOrder = new SellOrder
-            {
-                Account = "87654321",
-                SecurityId = "SID4567",
-                Price = 11300
-            };
+            var sellOrder = new SellOrder { Account = "87654321",
+                                           SecurityId = "SID4567",
+                                           Price = 11300 };
 
-            Message msg = FixInterpreter.ToFixMessage(buyOrder);
+            Message msg = FixInterpreter.ToFixMessage(sellOrder);
 
             Assert.Equal("D", msg.Header.GetField(Tags.MsgType));
             Assert.Equal("2", msg.GetField(Tags.Side));
