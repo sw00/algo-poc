@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ITradeClient.cs" />
+    <Compile Include="FixConverter.cs" />
     <Compile Include="InitiatorApp.cs" />
     <Compile Include="Models\BuyOrder.cs" />
+    <Compile Include="Models\FixOrder.cs" />
+    <Compile Include="Models\SellOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TradeClient.cs" />
   </ItemGroup>

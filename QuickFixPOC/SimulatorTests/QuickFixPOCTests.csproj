@@ -66,8 +66,10 @@
   <ItemGroup>
     <Compile Include="Models\BuyOrderTest.cs" />
     <Compile Include="InterpreterTests.cs" />
+    <Compile Include="Models\SellOrderTest.cs" />
     <Compile Include="SimulatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TradeClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

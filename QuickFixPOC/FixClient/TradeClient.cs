@@ -12,8 +12,19 @@ namespace FixClient
     {
         public bool Send(BuyOrder order)
         {
-            throw new NotImplementedException();
+            var msg = FixConverter.ToFixMessage(order);
+            return LogMessage(msg);
         }
 
+        public bool Send(SellOrder order)
+        {
+            var msg = FixConverter.ToFixMessage(order);
+            return LogMessage(msg);
+        }
+
+        private bool LogMessage(string msg)
+        {
+            return true;
+        }
     }
 }
