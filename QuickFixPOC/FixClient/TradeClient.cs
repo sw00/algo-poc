@@ -1,4 +1,5 @@
 ﻿using FixClient.Contracts;
+using FixClient.Logging;
 using FixClient.Models;
 using QuickFix;
 using System;
@@ -12,34 +13,26 @@ namespace FixClient
 {
     public class TradeClient : ITradeClient
     {
+        private ILogger _logger;
+
+        public TradeClient(ILogger logger)
+        {
+            _logger = logger;
+        }
+        
         public bool Send(BuyOrder order)
         {
-            var msg = FixInterpreter.ToFixMessage(order);
-            return LogMessage(msg);
+            var msg = Fix50MessageBuilder.ToFixMessage(order);
+            _logger.LogMessage(msg);
+            //TODO: implement actual Session.send(msg);
+            return true;
         }
 
         public bool Send(SellOrder order)
         {
-            var msg = FixInterpreter.ToFixMessage(order);
-            return LogMessage(msg);
-        }
-
-        private bool LogMessage(Message msg)
-        {
-            string message = msg.ToString();
-            string path = "c:\\FixLogs\\FixLog.txt";
-
-            try
-            {
-                string logLine = $"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")} {message} {Environment.NewLine}";
-                FileInfo file = new FileInfo(path);
-                file.Directory.Create(); 
-                File.AppendAllText(file.FullName, logLine);
-
-            }catch (Exception ex)
-            {
-                return false; 
-            }
+            var msg = Fix50MessageBuilder.ToFixMessage(order);
+            _logger.LogMessage(msg);
+            //TODO: implement actual Session.send(msg);
             return true;
         }
     }

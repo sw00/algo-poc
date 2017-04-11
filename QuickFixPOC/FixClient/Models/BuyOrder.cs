@@ -12,7 +12,7 @@ namespace FixClient.Models
         private readonly int _side = 1;
 
         public override int Side {
-            get { return this._side;  }
+            get { return this._side; }
         }
     }
 

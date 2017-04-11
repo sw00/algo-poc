@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ITradeClient.cs" />
-    <Compile Include="FixInterpreter.cs" />
+    <Compile Include="Fix50MessageBuilder.cs" />
     <Compile Include="InitiatorApp.cs" />
+    <Compile Include="Logging\FixClientLogger.cs" />
     <Compile Include="Models\BuyOrder.cs" />
     <Compile Include="Models\FixOrder.cs" />
     <Compile Include="Models\SellOrder.cs" />

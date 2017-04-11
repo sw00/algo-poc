@@ -21,7 +21,7 @@ namespace SimulatorTests
                                           SecurityId = "SampleID4567",
                                           Price = 64500 };
 
-            Message msg = FixInterpreter.ToFixMessage(buyOrder);
+            Message msg = Fix50MessageBuilder.ToFixMessage(buyOrder);
 
             Assert.Equal("D", msg.Header.GetField(Tags.MsgType));
             Assert.Equal("1", msg.GetField(Tags.Side));
@@ -35,7 +35,7 @@ namespace SimulatorTests
                                            SecurityId = "SID4567",
                                            Price = 11300 };
 
-            Message msg = FixInterpreter.ToFixMessage(sellOrder);
+            Message msg = Fix50MessageBuilder.ToFixMessage(sellOrder);
 
             Assert.Equal("D", msg.Header.GetField(Tags.MsgType));
             Assert.Equal("2", msg.GetField(Tags.Side));

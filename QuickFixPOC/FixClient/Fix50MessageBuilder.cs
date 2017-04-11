@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FixClient
 {
-    public static class FixInterpreter
+    public static class Fix50MessageBuilder
     {
         public static QuickFix.Message ToFixMessage(FixOrder order)
         {
@@ -36,5 +36,6 @@ namespace FixClient
            
             return orderMsg;
         }
+        
     }
 }

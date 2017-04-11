@@ -1,4 +1,5 @@
 ﻿using FixClient;
+using FixClient.Logging;
 using FixClient.Models;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace SimulatorTests
 {
     public class TradeClientTests
     {
+        ILogger _logger = new FixClientLogger();
+
         [Fact]
         public void Should_Successfully_Send_BuyOrder()
         {
-            var tradeClient = new TradeClient();
+            var tradeClient = new TradeClient(_logger);
             var buyOrder = new BuyOrder { Account = "12345678",
                                           SecurityId = "SampleID4567",
                                           Price = 64500 };
@@ -27,7 +30,7 @@ namespace SimulatorTests
         [Fact]
         public void Should_Successfully_Send_SellOrder()
         {
-            var tradeClient = new TradeClient();
+            var tradeClient = new TradeClient(_logger);
 
             var sellOrder = new SellOrder { Account = "87654321",
                                             SecurityId = "SID4567",
