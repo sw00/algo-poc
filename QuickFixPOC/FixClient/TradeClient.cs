@@ -20,7 +20,7 @@ namespace FixClient
             _logger = logger;
         }
         
-        public bool Send(BuyOrder order)
+        public bool Send(FixOrder order)
         {
             var msg = Fix50MessageBuilder.ToFixMessage(order);
             _logger.LogMessage(msg);
@@ -28,12 +28,5 @@ namespace FixClient
             return true;
         }
 
-        public bool Send(SellOrder order)
-        {
-            var msg = Fix50MessageBuilder.ToFixMessage(order);
-            _logger.LogMessage(msg);
-            //TODO: implement actual Session.send(msg);
-            return true;
-        }
     }
 }

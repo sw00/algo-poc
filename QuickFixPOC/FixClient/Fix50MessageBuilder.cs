@@ -20,10 +20,12 @@ namespace FixClient
             int ordTypeId = (int)order.OrderType;
 
             var map = dd.GetMapForMessage(order.MsgType.ToString());
+            string side = ((int)order.Side).ToString();
 
+            var otherSide = side.ToString();
             var orderMsg = new NewOrderSingle(
                 clOrdId,
-                new Side(char.Parse(order.Side.ToString())),
+                new Side(side[0]),
                 new TransactTime(DateTime.Now),
                 new OrdType('2') //TODO: fix this
                 );

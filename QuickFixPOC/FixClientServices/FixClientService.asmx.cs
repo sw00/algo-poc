@@ -27,7 +27,7 @@ namespace FixClientServices
         }
 
         [WebMethod]
-        public bool IssueBuyOrder(BuyOrder buyOrder)
+        public bool IssueBuyOrder(FixOrder buyOrder)
         {
             return _tradeClient.Send(buyOrder);
         }

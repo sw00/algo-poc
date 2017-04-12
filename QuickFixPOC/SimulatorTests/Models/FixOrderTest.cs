@@ -9,64 +9,77 @@ using Xunit;
 
 namespace SimulatorTests
 {
-    public class BuyOrderFixture : IDisposable
+    public class FixOrderFixture : IDisposable
     {
-        public BuyOrder DefaultBuyOrder = new BuyOrder();
+        public FixOrder DefaultFixOrder = new FixOrder();
         public void Dispose()
         {
             //nothing
         }
     }
 
-    public class BuyOrderTest : IClassFixture<BuyOrderFixture>
+    public class FixOrderTest : IClassFixture<FixOrderFixture>
     {
-        private readonly BuyOrder _defaultBuyOrder;
+        private readonly FixOrder _defaultFixOrder;
 
-        public BuyOrderTest(BuyOrderFixture fixture)
+        public FixOrderTest(FixOrderFixture fixture)
         {
-            _defaultBuyOrder = fixture.DefaultBuyOrder;
+            _defaultFixOrder = fixture.DefaultFixOrder;
         }
 
         [Fact]
         public void Should_Have_Side_Value_Of_One()
         {
-            Assert.Equal(1, _defaultBuyOrder.Side);
+            var buyOrder = new FixOrder {
+                Side = OrderSide.Buy
+            };
+            Assert.Equal(1, (int)buyOrder.Side);
         }
-        
+
+        [Fact]
+        public void Should_Have_Side_Value_Of_Two()
+        {
+            var sellOrder = new FixOrder
+            {
+                Side = OrderSide.Sell
+            };
+            Assert.Equal(2, (int)sellOrder.Side);
+        }
+
         [Fact]
         public void Should_Have_OrderBook_Value_Of_One()
         {
-            Assert.Equal(1, _defaultBuyOrder.OrderBook);
+            Assert.Equal(1, _defaultFixOrder.OrderBook);
         }
 
         [Fact]
         public void Should_Have_OrderType_Value_Of_D()
         {
-            Assert.Equal('D', _defaultBuyOrder.MsgType);
+            Assert.Equal('D', _defaultFixOrder.MsgType);
         }
 
         [Fact]
         public void Should_Have_OrderType_Value_Of_Limit()
         {
-            Assert.Equal(OrderType.Limit, _defaultBuyOrder.OrderType);
+            Assert.Equal(OrderType.Limit, _defaultFixOrder.OrderType);
         }
 
         [Fact]
         public void Should_Have_DisplayQuantity_Value_Of_Zero()
         {
-            Assert.Equal(0, _defaultBuyOrder.DisplayQuantity);
+            Assert.Equal(0, _defaultFixOrder.DisplayQuantity);
         }
 
         [Fact]
         public void Should_Have_OrderCapacity_Value_Of_A()
         {
-            Assert.Equal('A', _defaultBuyOrder.OrderCapacity);
+            Assert.Equal('A', _defaultFixOrder.OrderCapacity);
         }
 
         [Fact]
         public void Should_Have_SecurityIdSource_Value_Of_8()
         {
-            Assert.Equal(8, _defaultBuyOrder.SecurityIdSource);
+            Assert.Equal(8, _defaultFixOrder.SecurityIdSource);
         }
 
         [Fact]
@@ -74,11 +87,11 @@ namespace SimulatorTests
         {
             var before = DateTime.Now;
             Thread.Sleep(1);
-            var buyOrder = new BuyOrder();
+            var fixOrder = new FixOrder();
             Thread.Sleep(1);
             var after = DateTime.Now;
 
-            Assert.True(before < buyOrder.TransactionTime && buyOrder.TransactionTime < after);
+            Assert.True(before < fixOrder.TransactionTime && fixOrder.TransactionTime < after);
         }
 
         [Fact]
@@ -86,7 +99,7 @@ namespace SimulatorTests
         {
             Assert.Throws<FormatException>(delegate
             {
-                var buyOrder = new BuyOrder
+                var fixOrder = new FixOrder
                 {
                     Account = "123456789"
                 };
@@ -96,12 +109,12 @@ namespace SimulatorTests
         [Fact]
         public void Can_Assign_Valid_Account_Number()
         {
-            var buyOrder = new BuyOrder
+            var fixOrder = new FixOrder
             {
                 Account = "12345678"
             };
 
-            Assert.Equal("12345678", buyOrder.Account);
+            Assert.Equal("12345678", fixOrder.Account);
         }
 
         [Fact]
@@ -109,7 +122,7 @@ namespace SimulatorTests
         {
             Assert.Throws<FormatException>(delegate
             {
-                var buyOrder = new BuyOrder
+                var fixOrder = new FixOrder
                 {
                     SecurityId = "12jknbjhg&er"
                 };
@@ -119,12 +132,12 @@ namespace SimulatorTests
         [Fact]
         public void Can_Assign_Valid_SecurityID()
         {
-            var buyOrder = new BuyOrder
+            var fixOrder = new FixOrder
             {
                 SecurityId = "123Four5678"
             };
 
-            Assert.Equal("123Four5678", buyOrder.SecurityId);
+            Assert.Equal("123Four5678", fixOrder.SecurityId);
         }
     }
 }

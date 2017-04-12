@@ -18,7 +18,7 @@ namespace SimulatorTests
         public void Should_Successfully_Send_BuyOrder()
         {
             var tradeClient = new TradeClient(_logger);
-            var buyOrder = new BuyOrder { Account = "12345678",
+            var buyOrder = new FixOrder { Account = "12345678",
                                           SecurityId = "SampleID4567",
                                           Price = 64500 };
 
@@ -32,7 +32,7 @@ namespace SimulatorTests
         {
             var tradeClient = new TradeClient(_logger);
 
-            var sellOrder = new SellOrder { Account = "87654321",
+            var sellOrder = new FixOrder { Account = "87654321",
                                             SecurityId = "SID4567",
                                             Price = 11300 };
 

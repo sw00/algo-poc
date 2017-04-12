@@ -65,9 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FixInterpreterTests.cs" />
-    <Compile Include="Models\BuyOrderTest.cs" />
+    <Compile Include="Models\FixOrderTest.cs" />
     <Compile Include="InterpreterTests.cs" />
-    <Compile Include="Models\SellOrderTest.cs" />
     <Compile Include="SimulatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TradeClientTests.cs" />

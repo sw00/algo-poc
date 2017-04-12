@@ -31,7 +31,7 @@ namespace AcceptanceTest
             return new ThreadedSocketAcceptor(app, storeFactory, settings, logFactory);
         }
 
-        [Fact]
+       // [Fact]
         public void Should_Work()
         {
             _server.Start();

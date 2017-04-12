@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FixClient.Models
 {
-    public abstract class FixOrder
+    public class FixOrder
     {
-        public virtual int Side { get; set; }
+        
         public readonly int OrderBook = 1;
         public readonly char MsgType = 'D';
         public readonly OrderType OrderType = OrderType.Limit;
@@ -21,6 +21,8 @@ namespace FixClient.Models
 
         public int OrderQuantity { get; set; }
         public Decimal Price { get; set; }
+
+        public OrderSide Side { get; set; }
 
         private string _account;
         public string Account
@@ -65,5 +67,11 @@ namespace FixClient.Models
         StopLimit = 4,
         PeggedOrder = 'P',
         PeggedLimitOrder = 'R'
+    }
+
+    public enum OrderSide
+    {
+        Buy = 1,
+        Sell = 2
     }
 }

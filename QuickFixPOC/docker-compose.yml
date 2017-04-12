@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  traderapi:
+    image: traderapi
+    build:
+      context: ./TraderAPI
+      dockerfile: Dockerfile

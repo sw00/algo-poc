@@ -9,8 +9,6 @@ namespace FixClient.Contracts
 {
     public interface ITradeClient
     {
-        bool Send(BuyOrder order);
-
-        bool Send(SellOrder order);
+        bool Send(FixOrder order);
     }
 }
