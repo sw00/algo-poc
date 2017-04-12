@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixClient", "FixClient\FixC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixClientServices", "FixClientServices\FixClientServices.csproj", "{BDE89B8B-BD21-41FA-94F8-C81C42EAA015}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcceptanceTest", "AcceptanceTest\AcceptanceTest.csproj", "{8354670F-7134-46DF-A4BC-D3F117D3A821}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BDE89B8B-BD21-41FA-94F8-C81C42EAA015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDE89B8B-BD21-41FA-94F8-C81C42EAA015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDE89B8B-BD21-41FA-94F8-C81C42EAA015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8354670F-7134-46DF-A4BC-D3F117D3A821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8354670F-7134-46DF-A4BC-D3F117D3A821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8354670F-7134-46DF-A4BC-D3F117D3A821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8354670F-7134-46DF-A4BC-D3F117D3A821}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

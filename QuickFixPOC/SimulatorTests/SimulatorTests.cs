@@ -10,22 +10,6 @@ using Xunit;
 
 namespace SimulatorTests
 {
-    public class MockSessionCreator : ISessionCreator
-    {
-        Mock<Session> _mockSession = new Mock<Session>();
-
-
-        public Mock<Session> getMockSession()
-        {
-            return _mockSession;
-        }
-
-        public Session LookupSession(SessionID sessionId)
-        {
-            return _mockSession.Object;
-        }
-    }
-
 
     public class SimulatorTests
     {
@@ -33,7 +17,7 @@ namespace SimulatorTests
         public void Should_LoadMessagesFromFilePath()
         {
             string path = "Data/03.JSE_Indices_recv_log.txt";
-            var app = new Simulator.AcceptorApp(path, new MockSessionCreator());
+            var app = new Simulator.AcceptorApp(path);
 
             Assert.True(app.messages.Count > 0);
         }

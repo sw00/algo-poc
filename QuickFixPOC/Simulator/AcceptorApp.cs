@@ -10,29 +10,14 @@ using System.Threading;
 
 namespace Simulator
 {
-    public interface ISessionCreator
-    {
-        Session LookupSession(SessionID sessionId);
-    }
-
-    public class SessionCreator : ISessionCreator
-    {
-        public Session LookupSession(SessionID sessionId)
-        {
-            return Session.LookupSession(sessionId);
-        }
-    }
-
     public class AcceptorApp : QuickFix.IApplication
     {
         public List<string> messages;
         private Session _session;
-        private ISessionCreator _createSession;
         
-        public AcceptorApp(string filename, ISessionCreator sessionCreator)
+        public AcceptorApp(string filename)
         {
             messages = File.ReadLines(filename).ToList();
-            _createSession = sessionCreator;
         }
 
         public AcceptorApp(string filename, Session fakeSession)
@@ -52,7 +37,7 @@ namespace Simulator
 
         public void OnCreate(SessionID sessionID)
         {
-            _session = _createSession.LookupSession(sessionID);
+            _session = Session.LookupSession(sessionID);
         }
 
         public void OnLogon(SessionID sessionID)
